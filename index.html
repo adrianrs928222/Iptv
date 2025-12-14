@@ -1,174 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StreamDomus IPTV</title>
-  <meta name="description" content="StreamDomus IPTV - IPTV premium en vivo y on-demand. Contacto directo por WhatsApp y Telegram." />
+  <meta name="description" content="StreamDomus IPTV - IPTV premium con demo en video y contacto directo por WhatsApp">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- OJO: este nombre debe coincidir EXACTO con el archivo -->
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- Header -->
-  <header class="topbar" id="top">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="StreamDomus Home">
-        <span class="brand__logo">SD</span>
-        <span class="brand__name">StreamDomus IPTV</span>
-      </a>
 
-      <nav class="nav__menu" aria-label="Navegación">
-        <a href="#demo">Demo</a>
-        <a href="#planes">Planes</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+<header class="topbar">
+  <div class="container nav">
+    <h1 class="logo">StreamDomus IPTV</h1>
+    <nav>
+      <a href="#demo">Demo</a>
+      <a href="#planes">Planes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <main class="hero" id="inicio">
-    <div class="container hero__grid">
-      <section class="hero__content">
-        <p class="badge">🔥 IPTV Premium • En vivo + On-Demand</p>
-        <h1>Tu entretenimiento en un solo lugar.</h1>
-        <p class="lead">
-          Calidad estable, multi-dispositivo y soporte rápido.
-          Elige tu plan y escríbenos directamente.
-        </p>
+<main class="hero container">
+  <span class="badge">🔥 IPTV Premium</span>
+  <h2>Todo tu entretenimiento en un solo lugar</h2>
+  <p>Servicio estable, multi-dispositivo y soporte rápido.</p>
+</main>
 
-        <div class="hero__cta">
-          <a class="btn" href="#planes">Ver planes</a>
-          <a class="btn btn--ghost" href="#demo">Ver demo</a>
-        </div>
+<!-- DEMO CON REPRODUCTOR -->
+<section id="demo" class="container card">
+  <h3>Demo en video</h3>
+  <p class="muted">Vista previa del servicio IPTV</p>
 
-        <div class="hero__trust">
-          <div class="trust__item">
-            <strong>HD / FHD</strong>
-            <span>según disponibilidad</span>
-          </div>
-          <div class="trust__item">
-            <strong>Multi-dispositivo</strong>
-            <span>TV, móvil, PC</span>
-          </div>
-          <div class="trust__item">
-            <strong>Soporte</strong>
-            <span>WhatsApp / Telegram</span>
-          </div>
-        </div>
-      </section>
+  <div class="video">
+    <video
+      controls
+      muted
+      playsinline
+      preload="metadata"
+      poster=""
+    >
+      <source
+        src="https://drive.google.com/uc?export=download&id=1SB1oqUFG5y_AYtwYO8xPQpiNyoqFuEEv"
+        type="video/mp4">
+      Tu navegador no soporta reproducción de video.
+    </video>
+  </div>
 
-      <section class="card hero__media" id="demo">
-        <div class="card__header">
-          <h2>Demo</h2>
-          <p>Reemplaza el iframe por tu reproductor o enlace.</p>
-        </div>
+  <p class="hint">Pulsa play para reproducir la demo.</p>
+</section>
 
-        <div class="video">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Demo StreamDomus"
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
-        </div>
+<!-- PLAN -->
+<section id="planes" class="container">
+  <h3>Plan disponible</h3>
 
-        <p class="hint">Tip: puedes cambiar el enlace del iframe cuando quieras.</p>
-      </section>
-    </div>
-  </main>
+  <div class="card highlight">
+    <h4>Plan Anual</h4>
+    <p><strong>Duración:</strong> 1 año</p>
+    <p><strong>Precio:</strong> 50€</p>
 
-  <!-- Planes -->
-  <section class="section" id="planes">
-    <div class="container">
-      <div class="section__head">
-        <h2>Planes</h2>
-        <p>Selecciona el plan y te abre WhatsApp con el mensaje listo.</p>
-      </div>
+    <a
+      class="btn"
+      target="_blank"
+      href="https://wa.me/34642425345?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Anual.%20Duraci%C3%B3n%3A%201%20a%C3%B1o.%20Precio%3A%2050%E2%82%AC">
+      Contratar por WhatsApp
+    </a>
+  </div>
+</section>
 
-      <div class="grid grid--3">
-        <!-- Plan anual (WhatsApp directo) -->
-        <article class="card pricing pricing--popular">
-          <div class="pill">Más vendido</div>
-          <h3>Plan Anual</h3>
-          <p class="price">50€ <span>/ 1 año</span></p>
-          <ul>
-            <li>Acceso completo</li>
-            <li>Soporte rápido</li>
-            <li>Configuración guiada</li>
-          </ul>
+<!-- CONTACTO -->
+<section id="contacto" class="container card">
+  <h3>Contacto directo</h3>
+  <a class="btn" href="https://wa.me/34642425345" target="_blank">WhatsApp</a>
+  <a class="btn ghost" href="https://t.me/adrianrs9282" target="_blank">Telegram</a>
+</section>
 
-          <!-- WhatsApp directo con mensaje -->
-          <a
-            class="btn"
-            target="_blank"
-            rel="noopener"
-            href="https://wa.me/34642425345?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Anual.%0ADuraci%C3%B3n%3A%201%20a%C3%B1o%0APrecio%3A%2050%E2%82%AC"
-          >
-            Contratar por WhatsApp
-          </a>
+<!-- BOTONES FLOTANTES -->
+<a class="float wa" href="https://wa.me/34642425345" target="_blank">📞</a>
+<a class="float tg" href="https://t.me/adrianrs9282" target="_blank">💬</a>
 
-          <p class="hint">Se abre WhatsApp con el texto ya escrito.</p>
-        </article>
+<footer>
+  <p>© 2025 StreamDomus IPTV</p>
+</footer>
 
-        <!-- Card info -->
-        <article class="card feature">
-          <h3>¿Qué incluye?</h3>
-          <p>En vivo + on-demand, asistencia para instalación y recomendaciones.</p>
-        </article>
-
-        <!-- Card info -->
-        <article class="card feature">
-          <h3>Compatibilidad</h3>
-          <p>Smart TV / Android TV / Móvil / PC (según tu app de reproducción).</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section class="section section--alt" id="contacto">
-    <div class="container">
-      <div class="section__head">
-        <h2>Contacto</h2>
-        <p>Si tienes dudas, escríbenos directamente.</p>
-      </div>
-
-      <div class="grid grid--2">
-        <div class="card">
-          <h3>WhatsApp</h3>
-          <p class="muted">Respuesta rápida.</p>
-          <a class="btn" target="_blank" rel="noopener" href="https://wa.me/34642425345">Abrir WhatsApp</a>
-        </div>
-
-        <div class="card">
-          <h3>Telegram</h3>
-          <p class="muted">Alternativa de contacto.</p>
-          <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://t.me/adrianrs9282">Abrir Telegram</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Botones flotantes -->
-  <a class="float float--wa" href="https://wa.me/34642425345" target="_blank" rel="noopener" aria-label="WhatsApp">📞</a>
-  <a class="float float--tg" href="https://t.me/adrianrs9282" target="_blank" rel="noopener" aria-label="Telegram">💬</a>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <p>© 2025 StreamDomus IPTV. Todos los derechos reservados.</p>
-      <div class="footer__links">
-        <a href="#planes">Planes</a>
-        <a href="#demo">Demo</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
