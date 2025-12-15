@@ -10,13 +10,9 @@
 }
 
 /* SCROLL SUAVE */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -26,10 +22,17 @@ body {
   scroll-padding-top: 90px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* ANIMACIONES: base */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+a { text-decoration: none; color: inherit; }
 
 .container {
   width: min(1100px, 92%);
@@ -67,6 +70,11 @@ a {
   background: var(--accent);
   display: grid;
   place-items: center;
+  transition: transform .18s ease, filter .18s ease;
+}
+.brand:hover .brand__logo {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
 }
 
 /* NAV */
@@ -74,6 +82,11 @@ a {
   margin-left: 16px;
   font-weight: 600;
   color: var(--muted);
+  transition: color .18s ease, transform .18s ease;
+}
+.nav a:hover {
+  color: var(--text);
+  transform: translateY(-1px);
 }
 
 .nav__cta {
@@ -81,12 +94,18 @@ a {
   padding: 8px 14px;
   border-radius: 12px;
   background: var(--accent);
+  transition: transform .18s ease, filter .18s ease;
+}
+.nav__cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
 }
 
 /* HERO */
 .hero {
   padding: 60px 0 40px;
   text-align: center;
+  animation: fadeUp .6s ease both;
 }
 
 .badge {
@@ -96,17 +115,23 @@ a {
   background: rgba(99,102,241,.2);
   color: #c7d2fe;
   font-weight: 600;
+  animation: fadeUp .6s ease both;
+  animation-delay: .05s;
 }
 
 .hero h1 {
   font-size: clamp(30px, 4vw, 44px);
   margin: 16px 0 12px;
+  animation: fadeUp .6s ease both;
+  animation-delay: .10s;
 }
 
 .hero__text {
   color: var(--muted);
   max-width: 600px;
   margin: auto;
+  animation: fadeUp .6s ease both;
+  animation-delay: .15s;
 }
 
 .hero__buttons {
@@ -115,6 +140,8 @@ a {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+  animation: fadeUp .6s ease both;
+  animation-delay: .20s;
 }
 
 .hero__features {
@@ -124,11 +151,14 @@ a {
   justify-content: center;
   color: var(--muted);
   font-weight: 600;
+  animation: fadeUp .6s ease both;
+  animation-delay: .25s;
 }
 
 /* SECTIONS */
 .section {
   padding: 50px 0;
+  animation: fadeUp .6s ease both;
 }
 
 .section--alt {
@@ -143,6 +173,11 @@ a {
   padding: 22px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.16);
 }
 
 .card--highlight {
@@ -166,6 +201,12 @@ a {
   margin-top: 14px;
   border-radius: 14px;
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.video-wrapper:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.16);
 }
 
 video {
@@ -179,7 +220,6 @@ video {
   font-size: 36px;
   font-weight: 800;
 }
-
 .price span {
   font-size: 14px;
   color: var(--muted);
@@ -201,11 +241,25 @@ video {
   border-radius: 14px;
   background: var(--accent);
   font-weight: 700;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  box-shadow: 0 10px 24px rgba(99,102,241,.18);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+.btn:active {
+  transform: translateY(0);
+  filter: brightness(1.02);
 }
 
 .btn--ghost {
   background: transparent;
   border: 1px solid var(--accent);
+  box-shadow: none;
+}
+.btn--ghost:hover {
+  box-shadow: 0 10px 24px rgba(99,102,241,.12);
 }
 
 .btn--big {
@@ -232,6 +286,12 @@ video {
   color: #fff;
   z-index: 999;
   box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  transition: transform .18s ease, filter .18s ease;
+  animation: floaty 2.6s ease-in-out infinite;
+}
+.float:hover {
+  transform: scale(1.08);
+  filter: brightness(1.06);
 }
 
 .float--whatsapp {
@@ -244,10 +304,6 @@ video {
   background: #229ED9;
 }
 
-.float:hover {
-  transform: scale(1.08);
-}
-
 /* FOOTER */
 .footer {
   padding: 22px 0;
@@ -258,7 +314,12 @@ video {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
+  .nav { display: none; }
+  .hero__features { flex-direction: column; gap: 8px; }
+}
+
+/* Respeta "reducir movimiento" (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
 }
