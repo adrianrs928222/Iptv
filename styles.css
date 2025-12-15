@@ -9,16 +9,27 @@
   --radius: 18px;
 }
 
-* { box-sizing: border-box; }
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
   color: var(--text);
   background: linear-gradient(180deg, var(--bg), var(--bg2));
+  scroll-padding-top: 90px;
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .container {
   width: min(1100px, 92%);
@@ -58,6 +69,7 @@ a { text-decoration: none; color: inherit; }
   place-items: center;
 }
 
+/* NAV */
 .nav a {
   margin-left: 16px;
   font-weight: 600;
@@ -206,11 +218,34 @@ video {
   text-align: center;
 }
 
-.contact__buttons {
-  margin-top: 16px;
+/* FLOATING ICONS */
+.float {
+  position: fixed;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   display: flex;
-  gap: 12px;
+  align-items: center;
   justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  z-index: 999;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.float--whatsapp {
+  right: 20px;
+  background: #25D366;
+}
+
+.float--telegram {
+  left: 20px;
+  background: #229ED9;
+}
+
+.float:hover {
+  transform: scale(1.08);
 }
 
 /* FOOTER */
@@ -223,5 +258,7 @@ video {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .nav { display: none; }
+  .nav {
+    display: none;
+  }
 }
